@@ -1,4 +1,4 @@
-# react-hook-tools:
+# react-hook-tools
 
 A lightweight library that provides two essential custom hooks for your react or react-native projects.
 
