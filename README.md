@@ -12,7 +12,7 @@ A lightweight library that provides two essential custom hooks for your react or
 Install the library using npm or yarn:
 
 ```bash
-npm install react-hook-tools
+npm install @shurutech/react-hook-tools
 ```
 
 ## Example Usage
@@ -31,7 +31,7 @@ Note: Time will in milliseconds ( > 0 ) if you need to run interval, and undefin
 #### Example
 
 ```
-import { useInterval } from 'react-hook-tools';
+import { useInterval } from '@shurutech/react-hook-tools';
 
 const IntervalComponent = () => {
   useInterval(() => {
@@ -56,7 +56,7 @@ Note: Time will in milliseconds ( > 0 ) if you need to run interval, and undefin
 #### Example
 
 ```
-import { useTimeout } from 'react-hook-tools';
+import { useTimeout } from '@shurutech/react-hook-tools';
 
 const TimerComponent = () => {
   useTimeout(() => {
