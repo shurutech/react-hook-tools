@@ -1,6 +1,6 @@
 {
   "name": "@shurutech/react-hook-tools",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist"
