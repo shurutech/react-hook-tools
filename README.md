@@ -103,3 +103,22 @@ const SearchComponent = () => {
 };
 ```
 
+## How to Contribute
+1. Fork this repository to your GitHub account and clone it locally.
+
+2. Install project dependencies.
+
+3. Create a new branch for your feature or bugfix.
+
+4. Implement your changes, ensuring they follow existing coding standards.
+
+5. Commit your changes with a descriptive message.
+
+6. Push your branch to your forked repository.
+
+7. Open a pull request with a clear description of your changes.
+
+8. Address any feedback or requested changes from maintainers.
+
+9. Celebrate once your contribution is merged! 🎉
+
