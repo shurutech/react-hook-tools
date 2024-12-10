@@ -7,6 +7,8 @@ A lightweight library that provides two essential custom hooks for your react or
 - **`useInterval`**: Set up recurring functions at specified intervals.
 - **`useTimeout`**: Delay execution of a function for a specified time.
 - **`useDebouncedValue`**: Debounce a value, updating it after a specified delay.
+- **`useThrottledValue`**: Throttle a value, ensuring it updates only once within the specified delay period.
+- **`usePrevious`**: Capture and store the previous value of a state or prop.
 
 ## Installation
 
@@ -99,6 +101,68 @@ const SearchComponent = () => {
       onChange={(e) => setSearch(e.target.value)}
       placeholder="Search..."
     />
+  );
+};
+```
+
+### useThrottledValue:
+
+#### Syntax:
+
+```
+const throttledValue = useThrottledValue(value, delay);
+```
+
+#### Example
+
+```
+import { useThrottledValue } from '@shurutech/react-hook-tools';
+
+function ThrottleTestComponent() {
+  const [inputValue, setInputValue] = React.useState("");
+  const throttledValue = useThrottle(inputValue, 1000);
+
+  return (
+    <div>
+      <h2>useThrottledValue Hook Test</h2>
+      <input
+        type="text"
+        placeholder="Type something..."
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <p>Immediate Value: {inputValue}</p>
+      <p>Throttled Value (updates every 1000ms): {throttledValue}</p>
+    </div>
+  );
+}
+
+export default ThrottleTestComponent;
+```
+
+### usePrevious:
+
+#### Syntax:
+
+```
+const previousValue = usePrevious(value);
+```
+
+#### Example
+
+```
+import { usePrevious } from '@shurutech/react-hook-tools';
+
+const PreviousValueComponent = () => {
+  const [count, setCount] = React.useState(0);
+  const previousCount = usePrevious(count);
+
+  return (
+    <div>
+      <p>Current Count: {count}</p>
+      <p>Previous Count: {previousCount}</p>
+      <button onClick={() => setCount((prev) => prev + 1)}>Increment</button>
+    </div>
   );
 };
 ```
