@@ -7,6 +7,7 @@ A lightweight library that provides two essential custom hooks for your react or
 - **`useInterval`**: Set up recurring functions at specified intervals.
 - **`useTimeout`**: Delay execution of a function for a specified time.
 - **`useDebouncedValue`**: Debounce a value, updating it after a specified delay.
+- **`usePrevious`**: Capture and store the previous value of a state or prop.
 
 ## Installation
 
@@ -99,6 +100,33 @@ const SearchComponent = () => {
       onChange={(e) => setSearch(e.target.value)}
       placeholder="Search..."
     />
+  );
+};
+```
+
+### usePrevious:
+
+#### Syntax:
+
+```
+const previousValue = usePrevious(value);
+```
+
+#### Example
+
+```
+import { usePrevious } from '@shurutech/react-hook-tools';
+
+const PreviousValueComponent = () => {
+  const [count, setCount] = React.useState(0);
+  const previousCount = usePrevious(count);
+
+  return (
+    <div>
+      <p>Current Count: {count}</p>
+      <p>Previous Count: {previousCount}</p>
+      <button onClick={() => setCount((prev) => prev + 1)}>Increment</button>
+    </div>
   );
 };
 ```
