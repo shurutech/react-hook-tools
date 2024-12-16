@@ -7,6 +7,7 @@ A lightweight library that provides two essential custom hooks for your react or
 - **`useInterval`**: Set up recurring functions at specified intervals.
 - **`useTimeout`**: Delay execution of a function for a specified time.
 - **`useDebouncedValue`**: Debounce a value, updating it after a specified delay.
+- **`useCopyToClipboard`**: Copies text to clipboard
 
 ## Installation
 
@@ -22,7 +23,7 @@ npm install @shurutech/react-hook-tools
 
 #### Syntax:
 
-```
+```jsx
 useInterval(()=>{
     // functionality
 },time)
@@ -31,7 +32,7 @@ Note: Time will in milliseconds ( > 0 ) if you need to run interval, and undefin
 
 #### Example
 
-```
+```jsx
 import { useInterval } from '@shurutech/react-hook-tools';
 
 const IntervalComponent = () => {
@@ -47,7 +48,7 @@ const IntervalComponent = () => {
 
 #### Syntax:
 
-```
+```jsx
 useTimeout(()=>{
     // functionality
 },time)
@@ -56,7 +57,7 @@ Note: Time will in milliseconds ( > 0 ) if you need to run interval, and undefin
 
 #### Example
 
-```
+```jsx
 import { useTimeout } from '@shurutech/react-hook-tools';
 
 const TimerComponent = () => {
@@ -72,13 +73,13 @@ const TimerComponent = () => {
 
 #### Syntax:
 
-```
+```jsx
 const debouncedValue = useDebouncedValue(value, delay);
 ```
 
 #### Example
 
-```
+```jsx
 import { useDebouncedValue } from '@shurutech/react-hook-tools';
 
 const SearchComponent = () => {
@@ -99,6 +100,37 @@ const SearchComponent = () => {
       onChange={(e) => setSearch(e.target.value)}
       placeholder="Search..."
     />
+  );
+};
+```
+
+### useCopyToClipboard:
+
+#### Syntax:
+
+```jsx
+const [copiedText, copyFunction] = useCopyToClipboard()
+```
+
+#### Example
+
+```jsx
+import { useCopyToClipboard } from '@shurutech/react-hook-tools';
+
+const CopyComponent = () => {
+  const [copiedText, copyFunction] = useCopyToClipboard()
+
+  const handleCopy = async () => {
+    const copyStatus = await copyFunction("Hello, World!")
+    
+    if(copyStatus)
+      console.log("Text copied successfully!")
+    else
+      console.log("Copy failed!")
+  }
+
+  return (
+    <button onClick={handleCopy}>Copy Text</button>
   );
 };
 ```
